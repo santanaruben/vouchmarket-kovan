@@ -4,7 +4,7 @@ const Web3 = require("web3");
 const Contract = require("@truffle/contract");
 
 // Block of deployed contract
-const CONTRACTBLOCK = 13294121;
+const CONTRACTBLOCK = 27443517;
 
 // Compiled contract
 var VMjson = require("./contracts/VouchMarket.json");
@@ -26,9 +26,9 @@ export const VM = {
   contract: null, //Contract
   VouchMarket: null, //Contract instance
   // chainId: 1337, // local
-  // chainId: 42, //Ethereum kovan chain id
-  chainId: 1, //Ethereum mainnet chain id
-  minDeposit: 0.013,
+  chainId: 42, //Ethereum kovan chain id
+  // chainId: 1, //Ethereum mainnet chain id
+  minDeposit: 0.015,
   minTimeLimit: 5,
   // minTimeLimit: 0,
   feeDivisor: null,
@@ -60,8 +60,8 @@ export const VM = {
       await VM.contract.setProvider(VM.web3.currentProvider);
       // VM.VouchMarket = await VM.contract.deployed();
       VM.VouchMarket = await VM.contract.at(
-        // "0x96f92dCBBf48a63Aac79DFff7De3eE5FAC0a8AC4" //kovan
-        "0xF77902D93FBAe39Bb969bB9E7391526de4619a3E" //mainnet
+        "0x586bC70a844BED8f2532eCdCdb2268d06d8e10D4" //kovan
+        // "0xF77902D93FBAe39Bb969bB9E7391526de4619a3E" //mainnet
       );
       await checkChainId();
       await VM.stateVariables();
